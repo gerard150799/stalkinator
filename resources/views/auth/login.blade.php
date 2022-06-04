@@ -93,21 +93,28 @@
                     </div>
                 </div>
             </div>
+            <!-- Session Status -->
+            <x-auth-session-status class="alert alert-danger alert-dismissible fade show"
+                            :status="session('status')" />
+            <!-- Validation Errors -->
+            <x-auth-validation-errors class="alert alert-danger alert-dismissible fade show"
+                :errors="$errors" />
+
             <div class="bg-white pt-32pt pt-sm-64pt pb-32pt">
                 <div class="container page__container">
                     <form action="{{ route('login') }}" method="POST" class="col-md-5 p-0 mx-auto">
                         @csrf
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input id="email" type="email" name="email" class="form-control" placeholder="Your username ...">
+                            <input id="email" type="email" name="email" class="form-control" placeholder="Your username ..." required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
-                            <input id="password" type="password" name="password" class="form-control" placeholder="Your first and last name ...">
+                            <input id="password" type="password" name="password" class="form-control" placeholder="Your password" required>
                             <p class="text-right"><a href="reset-password.html" class="small">Forgot your password?</a></p>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-lg btn-accent"> Mission Start</button>
+                            <button class="btn btn-lg btn-accent" id="login-btn">Login</button>
                         </div>
                     </form>
                 </div>
@@ -159,6 +166,26 @@
 
     <!-- App Settings (safe to remove) -->
     <!-- <script src="assets/js/app-settings.js"></script> -->
+
+   <!--  @section('script')
+	<script>
+        $(document).ready(function() {
+
+            $('#login-btn').click(function() {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Logged in',
+                    showConfirmButton: false,
+                    timer: 1600
+                })
+
+            });
+        });
+    </script>
+ -->
+
+
 </body>
 
 </html>
