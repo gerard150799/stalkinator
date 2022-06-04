@@ -67,39 +67,70 @@
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					  </button>
-					  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-						<div class="navbar-nav">
-						  <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-						  <a class="nav-item nav-link" href="#">Missions</a>
-						  <a class="nav-item nav-link" href="#">Leaderboard</a>
-						  <a class="nav-item nav-link disabled" href="#">Disabled</a>
-						</div>
-					  </div>
-					</nav>
-
-                    <!-- <button class="btn btn-black mr-16pt" data-toggle="modal" data-target="#courses">Courses <i class="material-icons">arrow_drop_down</i></button> -->
-                    <!-- Main Navigation -->
-                    <nav class="nav navbar-nav ml-auto flex-nowrap">
-                        <div class="nav-item dropdown d-none d-sm-flex ml-16pt">
-                            <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
-								<li class="d-none d-sm-flex nav-item">
-								<a href="{{ route('register') }}" class="btn btn-primary">Register</a>
-								</li>
-								<li class="d-none d-sm-flex nav-item">
-								<a href="{{ route('login') }}" class="btn btn-accent">Login</a>
-								</li>
-							</ul>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                @if (Route::has('login'))
+                                    @auth
+                                        @if(Auth::user()->hasRole('student'))
+                                            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-item nav-link" href="#">Missions</a>
+                                            <a class="nav-item nav-link" href="#">Leaderboard</a>
+                                            <a class="nav-item nav-link" href="#">Dashboard</a>
+                                        @elseif(Auth::user()->hasRole('lecturer'))
+                                            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-item nav-link" href="#">Missions</a>
+                                            <a class="nav-item nav-link" href="#">Mission Configurations</a>
+                                            <a class="nav-item nav-link" href="#">Submissions</a>
+                                            <a class="nav-item nav-link" href="#">Leaderboard</a>
+                                        @endif
+                                @else
+                                    <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-item nav-link" href="#">Start Playing</a>
+                                    @endauth
+                                @endif
+                            </div>
                         </div>
-                        <!-- // END Notifications dropdown -->
-                    </nav>
-
-                    <!-- // END Main Navigation -->
-
+					</nav>
+                    <!-- <button class="btn btn-black mr-16pt" data-toggle="modal" data-target="#courses">Courses <i class="material-icons">arrow_drop_down</i></button> -->
+                    @if (Route::has('login'))
+                        @auth
+                            <nav class="nav navbar-nav ml-auto flex-nowrap">
+                                <div class="nav-item dropdown d-none d-sm-flex ml-16pt">
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                        <img width="32" height="32" class="rounded-circle" src="{{ asset('assets/images/people/50/guy-3.jpg') }}" alt="student" />
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">{{ Auth::user()->name }}</a>
+                                        <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
+                                        <div class="dropdown-divider"></div>
+                                        <div class="dropdown-header"><strong>Account</strong></div>
+                                        <a class="dropdown-item active" href="student-edit-account.html">Edit Account</a>
+                                        <form method ="POST" action ="{{ route('logout') }}">
+                                            @csrf    
+                                                <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">Logout</a>
+                                        </form> 
+                                    </div>
+                                </div>
+                            </nav>
+                        @else
+                            <nav class="nav navbar-nav ml-auto flex-nowrap">
+                                <div class="nav-item dropdown d-none d-sm-flex ml-16pt">
+                                    <ul class="nav navbar-nav ml-auto flex-nowrap" style="white-space: nowrap;">
+                                        <li class="d-none d-sm-flex nav-item">
+                                        <a href="{{ route('register') }}" class="btn btn-primary">Register</a>
+                                        </li>
+                                        <li class="d-none d-sm-flex nav-item">
+                                        <a href="{{ route('login') }}" class="btn btn-accent">Login</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        @endauth
+                    @endif
                 </div>
-
             </div>
         </div>
-
         @yield('content')
 
         <!-- // END Header -->
