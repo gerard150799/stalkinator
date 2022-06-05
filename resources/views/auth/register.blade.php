@@ -165,6 +165,8 @@
                     <div class="col-lg-10 p-0 mx-auto">
                         <div class="row">
                             <div class="col-md-6 mb-24pt mb-md-0">
+                                <x-auth-validation-errors class="alert alert-danger alert-dismissible fade show"
+                                    :errors="$errors" />
                                 <form action="{{ route('register') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
@@ -186,11 +188,16 @@
                                     </div>
                                     <div class="form-group mb-24pt">
                                         <label for="password_confirmation">Confirm Password:</label>
-                                        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control" placeholder="Retype password" required="password must be 8 to 12  characters long with combination">
+                                        <input id="password_confirmation" type="password" name="password_confirmation" class="form-control @error('password') is-invalid @enderror" placeholder="Retype password" required="password must be 8 to 12  characters long with combination">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="role-select">Select your role:</label>
-                                        <select id="role_id" name="role_id" class="form-control custom-select">
+                                        <select id="role_id" name="role_id" class="form-control custom-select" required>
                                             <option value="lecturer">Lecturer</option>
                                             <option value="student">Student</option>
                                         </select>
@@ -256,7 +263,7 @@
     <!-- App Settings (safe to remove) -->
     <script src="{{ asset('assets/js/app-settings.js') }}"></script>
     
-    @section('script')
+    <!-- @section('script')
 	<script>
         $(document).ready(function() {
 
@@ -271,7 +278,7 @@
 
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
