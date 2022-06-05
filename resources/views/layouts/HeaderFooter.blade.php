@@ -40,15 +40,31 @@
             <div class="sk-child sk-double-bounce2"></div>
         </div>
     </div>
+   
 
     <!-- Header Layout -->
+   
     <div class="mdk-header-layout js-mdk-header-layout">
-
-        <!-- Header -->
-
         <div id="header" class="mdk-header bg-dark js-mdk-header mb-0" data-effects="waterfall blend-background" data-fixed data-condenses>
-            <div class="mdk-header__content">
+            @if (session()->has('message'))
+                <div class="alert alert-success alert-dismissible" id= role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong> {{ session()->get('message') }}</strong> You are signed in now!
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Oh no!</strong>An error has occured. Please try again.
+                </div>
+            @endif
 
+            <div class="mdk-header__content">
+               
                 <div class="navbar navbar-expand-sm navbar-dark bg-dark pr-0 pr-md-16pt" id="default-navbar" data-primary>
 
                     <!-- Navbar toggler -->
@@ -131,11 +147,11 @@
                 </div>
             </div>
         </div>
-        @yield('content')
+       
 
         <!-- // END Header -->
 		<!-- Header Layout Content -->
-        
+        @yield('content')
         <!-- // END Header Layout Content -->
 		<div class="js-fix-footer bg-white border-top-2">
 			<div class="bg-footer page-section py-lg-50pt">

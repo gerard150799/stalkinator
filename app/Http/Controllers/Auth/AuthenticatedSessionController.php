@@ -44,14 +44,14 @@ class AuthenticatedSessionController extends Controller
             }
 
 
-            return redirect()->back()->with('message', 'Success!');
+            return redirect()->route('homepage')->with('message', 'Success!');
         } elseif (Auth::user()->hasRole('lecturer')) {
             $lecturerProfile_id =  lecturerProfile::where('user_id', Auth::user()->id)->first();
             if ($lecturerProfile_id ) {
                 session(['lecturerProfile_id' => $lecturerProfile_id->id]);
             }
 
-            return redirect()->route('dashboard.lecturerDashboard')->with('message', 'Sucess!');
+            return redirect()->route('homepage')->with('message', 'Success!');
         }
 
     }
