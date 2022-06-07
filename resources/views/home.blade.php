@@ -4,14 +4,14 @@
 <div class="mdk-header-layout__content page-content ">
             <div class="mdk-box mdk-box--bg-gradient-primary bg-dark js-mdk-box position-relative overflow-hidden mb-0" data-effects="parallax-background blend-background">
                 <div class="mdk-box__bg">
-                    <div class="mdk-box__bg-front" style="{{ asset('assets/images/social engineer.jpg') }}"></div>
+                    <div class="mdk-box__bg-front" style="background-image: url(assets/images/what-is-social-engineering-and-how-do-you-prevent-it-featured.png);"></div>
                 </div>
                 <div class="mdk-box__content">
                     <div class="container page__container py-64pt py-md-112pt">
                         <div class="row align-items-center text-center text-md-left">
                             <div class="col-md-6 col-lg-5 order-1 order-md-0">
                                 <h1 class="text-white">Learn to Social Engineer</span></h1>
-                                <p class="lead mb-32pt mb-lg-48pt text-white">A mission-based platform to promote social engineering in education level</p>
+                                <p class="lead mb-32pt mb-lg-48pt text-white">A mission-based platform to promote social engineering knowledge and awareness in education level</p>
                                 <a href="" class="btn btn-lg btn-white btn--raised mb-16pt">Start Playing</a>
                             </div>
                             <!-- <div class="col-md-6 col-lg-7 order-0 order-md-1 text-center mb-32pt mb-md-0">

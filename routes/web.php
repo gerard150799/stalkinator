@@ -19,7 +19,7 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 //auth route for both 
 Route::group(['middleware' => ['auth']], function() { 
-    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    //Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 });

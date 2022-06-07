@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>HomePage</title>
+    <title>Stalk-INATOR</title>
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
@@ -73,7 +73,7 @@
                     </button>
 
                     <!-- Navbar Brand -->
-                    <a href="index.html" class="navbar-brand">
+                    <a href="{{ route('homepage') }}" class="navbar-brand">
                         <img class="navbar-brand-icon mr-0 mr-md-8pt" src="{{ asset('assets/images/logo/logo.png') }}" width="30" alt="Tutorio">
                         <span class="d-none d-md-block">Stalk-INATOR</span>
                     </a>
@@ -88,19 +88,19 @@
                                 @if (Route::has('login'))
                                     @auth
                                         @if(Auth::user()->hasRole('student'))
-                                            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
                                             <a class="nav-item nav-link" href="#">Missions</a>
                                             <a class="nav-item nav-link" href="#">Leaderboard</a>
-                                            <a class="nav-item nav-link" href="#">Dashboard</a>
+                                            <a class="nav-item nav-link" href="{{ route('dashboard.studentDashboard') }}">Dashboard</a>
                                         @elseif(Auth::user()->hasRole('lecturer'))
-                                            <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                            <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
                                             <a class="nav-item nav-link" href="#">Missions</a>
                                             <a class="nav-item nav-link" href="#">Mission Configurations</a>
                                             <a class="nav-item nav-link" href="#">Submissions</a>
                                             <a class="nav-item nav-link" href="#">Leaderboard</a>
                                         @endif
                                 @else
-                                    <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
                                     <a class="nav-item nav-link" href="#">Start Playing</a>
                                     @endauth
                                 @endif
@@ -120,7 +120,7 @@
                                         <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
                                         <div class="dropdown-divider"></div>
                                         <div class="dropdown-header"><strong>Account</strong></div>
-                                        <a class="dropdown-item active" href="student-edit-account.html">Edit Account</a>
+                                        <a class="dropdown-item" href="student-edit-account.html">Edit Account</a>
                                         <form method ="POST" action ="{{ route('logout') }}">
                                             @csrf    
                                                 <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
