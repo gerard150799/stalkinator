@@ -42,7 +42,7 @@
                             <div class="d-flex">
                                 <div class="flex">
                                     <a class="card-title mb-4pt" href="instructor-edit-course.html">Mission 1</a>
-                                    <span class="badge badge-accent">Available</span>
+                                    <span class="badge badge-success">Available</span>
                                 </div>
                             </div>
                         </div>
