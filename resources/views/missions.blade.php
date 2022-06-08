@@ -1,7 +1,7 @@
 @extends('layouts.HeaderFooter')
 
 @section('content')
-<div class="mdk-header-layout__content page-content pb-0">
+<div class="mdk-header-layout__content page-content">
     <div class="py-54pt bg-gradient-primary">
         <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
             <div class="flex mb-32pt mb-md-0">
@@ -9,93 +9,117 @@
             </div>
         </div>
     </div>
-    <div class="bg-white py-32pt py-lg-64pt">
-        <div class="container page__container">
-            <div class="row align-items-center mb-8pt">
-                <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40"  data-toggle="popover" data-trigger="click">	
-                    <a href="" class="js-image" data-position="">
-                        <img src="assets/images/Eo_circle_blue_number-1.svg.png" alt="mission 1" width="200" height ="200">
+    <div class="container page__container page-section">
+        <div class="mb-heading d-flex align-items-center">
+            <div class ="row">
+                <div class = "col-sm">
+                    <h4 class="flex m-0">Choose difficulty:</h4>
+                </div>
+                <div class = "col-sm p-0">
+                    <div class="form-group">
+                        <select id="custom-select" class="form-control custom-select p-0">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click">
+                    <a href="instructor-edit-course.html" class="js-image" data-position="">
+                        <img src="assets/images/impersonation2.png" alt="course" style="width:200px; height:200px">
                         <span class="overlay__content">
                             <span class="overlay__action d-flex flex-column text-center">
-                                <!--<i class="material-icons">play_circle_outline</i>
-                                <small>Preview course</small>-->
+                                Mission Instruction
                             </span>
                         </span>
                     </a>
-                    <span class="corner-ribbon corner-ribbon--default-right-top corner-ribbon--shadow bg-accent text-white">NEW</span>
                     <div class="mdk-reveal__content">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex">
-                                    <a class="card-title" href="course.html">Mission 1</a>
-                                    <!--<small class="text-50 font-weight-bold mb-4pt">Elijah Murray</small>-->
+                                    <a class="card-title mb-4pt" href="instructor-edit-course.html">Mission 1</a>
+                                    <span class="badge badge-accent">Available</span>
                                 </div>
-                                <a href="course.html" class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite</a>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
                 <div class="popoverContainer d-none">
-                        <div class="media">
-                            <div class="media-left">
-                                <img src="assets/images/paths/angular_40x40@2x.png" width="40" height="40" alt="Angular" class="rounded">
-                            </div>
-                            <div class="media-body">
-                                <div class="card-title mb-0">Learn Angular fundamentals</div>
-                                    <p class="lh-1 mb-0">
-                                        <span class="text-black-50 small">with</span>
-                                        <span class="text-black-50 small font-weight-bold">Elijah Murray</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <p class="my-16pt text-black-70">Learn the fundamentals of working with Angular and how to create basic applications.</p>
-                            <div class="mb-16pt">
-                                <div class="d-flex align-items-center">
-                                    <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-                                    <p class="flex text-black-50 lh-1 mb-0"><small>Fundamentals of working with Angular</small></p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-                                    <p class="flex text-black-50 lh-1 mb-0"><small>Create complete Angular applications</small></p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-                                    <p class="flex text-black-50 lh-1 mb-0"><small>Working with the Angular CLI</small></p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-                                    <p class="flex text-black-50 lh-1 mb-0"><small>Understanding Dependency Injection</small></p>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <span class="material-icons icon-16pt text-black-50 mr-8pt">check</span>
-                                    <p class="flex text-black-50 lh-1 mb-0"><small>Testing with Angular</small></p>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-auto">
-                                    <div class="d-flex align-items-center mb-4pt">
-                                        <span class="material-icons icon-16pt text-black-50 mr-4pt">access_time</span>
-                                        <p class="flex text-black-50 lh-1 mb-0"><small>6 hours</small></p>
-                                    </div>
-                                    <div class="d-flex align-items-center mb-4pt">
-                                        <span class="material-icons icon-16pt text-black-50 mr-4pt">play_circle_outline</span>
-                                        <p class="flex text-black-50 lh-1 mb-0"><small>12 lessons</small></p>
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <span class="material-icons icon-16pt text-black-50 mr-4pt">assessment</span>
-                                        <p class="flex text-black-50 lh-1 mb-0"><small>Beginner</small></p>
-                                    </div>
-                                </div>
-                                <div class="col text-right">
-                                    <a href="course.html" class="btn btn-primary">Watch trailer</a>
+                    <p class="my-16pt text-black-70">Your mission is to find out which lecturer is a cat lover.</p>
+                    <div class="row align-items-center">
+                        <div class="col text-right">
+                            <a href="instructor-edit-course.html" class="btn btn-primary">Submit Findings</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <div class="card card--elevated card-course overlay js-overlay mdk-reveal js-mdk-reveal " data-partial-height="40" data-toggle="popover" data-trigger="click">
+                    <a href="instructor-edit-course.html" class="js-image" data-position="">
+                        <img src="assets/images/impersonation2.png" alt="course" style="width:200px; height:200px">
+                        <span class="overlay__content">
+                            <span class="overlay__action d-flex flex-column text-center">
+                                Mission Instruction
+                            </span>
+                        </span>
+                    </a>
+                    <div class="mdk-reveal__content">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="flex">
+                                    <a class="card-title mb-4pt" href="instructor-edit-course.html">Mission 2</a>
+                                    <span class="badge badge-accent">Available</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="popoverContainer d-none">
+                    <p class="my-16pt text-black-70">Your mission is to find out which lecturer is a cat lover.</p>
+                    <div class="row align-items-center">
+                        <div class="col text-right">
+                            <a href="instructor-edit-course.html" class="btn btn-primary">Submit Findings</a>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+
+            
+
         </div>
+        <!-- Pagination -->
+        <ul class="pagination justify-content-center pagination-sm">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true" class="material-icons">chevron_left</span>
+                    <span>Prev</span>
+                </a>
+            </li>
+            <li class="page-item active">
+                <a class="page-link" href="#" aria-label="1">
+                    <span>1</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="1">
+                    <span>2</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span>Next</span>
+                    <span aria-hidden="true" class="material-icons">chevron_right</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 

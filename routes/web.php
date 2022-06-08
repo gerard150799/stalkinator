@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MissionController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
 
@@ -19,14 +20,16 @@ Route::get('/', [HomePageController::class, 'index'])->name('homepage');
 
 //auth route for both 
 Route::group(['middleware' => ['auth']], function() { 
-    //Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
-    Route::get('/', [HomePageController::class, 'index'])->name('homepage');
+    Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
+    //Route::get('/', [HomePageController::class, 'index'])->name('homepage');
+    Route::get('/missions', [MissionController::class, 'index'])->name('missions');
 
 });
 
 // for users
 Route::group(['middleware' => ['auth', 'role:student']], function() { 
     Route::get('/dashboard/student', [DashboardController::class, 'studentDashboard'])->name('dashboard.studentDashboard');
+    
 });
 
 // for blogwriters

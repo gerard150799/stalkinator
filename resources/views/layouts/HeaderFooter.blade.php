@@ -89,12 +89,12 @@
                                     @auth
                                         @if(Auth::user()->hasRole('student'))
                                             <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
-                                            <a class="nav-item nav-link" href="#">Missions</a>
+                                            <a class="nav-item nav-link" href="{{ route('missions') }}">Missions</a>
                                             <a class="nav-item nav-link" href="#">Leaderboard</a>
                                             <a class="nav-item nav-link" href="{{ route('dashboard.studentDashboard') }}">Dashboard</a>
                                         @elseif(Auth::user()->hasRole('lecturer'))
                                             <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
-                                            <a class="nav-item nav-link" href="#">Missions</a>
+                                            <a class="nav-item nav-link" href="{{ route('missions') }}">Missions</a>
                                             <a class="nav-item nav-link" href="#">Mission Configurations</a>
                                             <a class="nav-item nav-link" href="#">Submissions</a>
                                             <a class="nav-item nav-link" href="#">Leaderboard</a>
