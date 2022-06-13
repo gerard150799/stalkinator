@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\lecturer\AddMissionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,15 +27,16 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-// for users
+// for students
 Route::group(['middleware' => ['auth', 'role:student']], function() { 
     Route::get('/dashboard/student', [DashboardController::class, 'studentDashboard'])->name('dashboard.studentDashboard');
     
 });
 
-// for blogwriters
+// for lecturers
 Route::group(['middleware' => ['auth', 'role:lecturer']], function() { 
     Route::get('/dashboard/lecturer', [DashboardController::class, 'lecturerDashboard'])->name('dashboard.lecturerDashboard');
+    Route::get('/missions/addmissions', [AddMissionsController::class, 'index'])->name('missions.addmissions');
 });
 
 require __DIR__.'/auth.php';

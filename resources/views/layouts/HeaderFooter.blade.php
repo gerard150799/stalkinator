@@ -31,6 +31,9 @@
     <!-- App CSS -->
     <link type="text/css" href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('assets/css/app.rtl.css') }}" rel="stylesheet">
+
+    <link type="text/css" href="{{ asset('assets/css/quill.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets/css/quill.rtl.css') }}" rel="stylesheet">
 </head>
 
 <body class="layout-navbar-mini-fixed-bottom">
@@ -202,6 +205,9 @@
 
     <!-- App Settings (safe to remove) -->
     <script src="{{ asset('assets/js/app-settings.js') }}"></script>
+    <!-- Quill -->
+    <script src="{{ asset('assets/vendor/quill.min.js') }}"></script>
+    <script src="{{ asset('assets/js/quill.js') }}"></script>
 
     @yield('script')
 
