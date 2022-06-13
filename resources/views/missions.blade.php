@@ -7,6 +7,9 @@
             <div class="flex mb-32pt mb-md-0">
                 <h1 class="text-white mb-8pt">Missions</h1>
             </div>
+            @if (Auth:: user()->hasRole('lecturer'))
+                <a href="{{ route('missions.addmissions') }}" class="btn btn-outline-white">Add Mission</a>
+            @endif
         </div>
     </div>
     <div class="container page__container page-section">
@@ -41,9 +44,12 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="flex">
-                                    <a class="card-title mb-4pt" href="instructor-edit-course.html">Mission 1</a>
+                                    <a class="card-title mb-4pt" href="#">Mission 1</a>
                                     <span class="badge badge-success">Available</span>
                                 </div>
+                                @if (Auth:: user()->hasRole('lecturer'))
+                                    <a href="#" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -76,6 +82,9 @@
                                     <a class="card-title mb-4pt" href="instructor-edit-course.html">Mission 2</a>
                                     <span class="badge badge-accent">Taken</span>
                                 </div>
+                                @if (Auth:: user()->hasRole('lecturer'))
+                                    <a href="#" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -91,9 +100,6 @@
                 </div>
 
             </div>
-
-            
-
         </div>
         <!-- Pagination -->
         <ul class="pagination justify-content-center pagination-sm">
