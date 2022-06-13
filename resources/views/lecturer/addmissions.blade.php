@@ -21,6 +21,14 @@
                                 </div>
                             </div>
                             <div class="list-group-item">
+                                <label class="form-label">Difficulty:</label>
+                                <select id="difficulty" name="difficulty" class="form-control custom-select" required>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <div class="list-group-item">
                                 <label class="form-label">Status:</label>
                                 <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
                                     <input checked="" type="checkbox" id="subscribe" class="custom-control-input">
