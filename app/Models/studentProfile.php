@@ -13,6 +13,7 @@ class studentProfile extends Model
     [
         'user_id',
         'fullName',
+        'studentID',
         'image'
     ];
 

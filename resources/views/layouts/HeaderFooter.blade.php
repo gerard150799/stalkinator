@@ -123,7 +123,7 @@
                                         <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
                                         <div class="dropdown-divider"></div>
                                         <div class="dropdown-header"><strong>Account</strong></div>
-                                        <a class="dropdown-item" href="student-edit-account.html">Edit Account</a>
+                                        <a class="dropdown-item" href="{{ route('student.editProfile')}}">Edit Profile</a>
                                         <form method ="POST" action ="{{ route('logout') }}">
                                             @csrf    
                                                 <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();

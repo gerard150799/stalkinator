@@ -18,6 +18,7 @@ class CreateStudentProfilesTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('fullName')->nullable();
+            $table->integer('studentID')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });
