@@ -47,9 +47,7 @@
                                     <a class="card-title mb-4pt" href="#">Mission 1</a>
                                     <span class="badge badge-success">Available</span>
                                 </div>
-                                @if (Auth:: user()->hasRole('lecturer'))
-                                    <a href="#" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
-                                @endif
+                                
                             </div>
                         </div>
                     </div>
@@ -60,6 +58,9 @@
                         <div class="col text-right">
                             <a href="instructor-edit-course.html" class="btn btn-primary">Submit Findings</a>
                         </div>
+                        @if (Auth:: user()->hasRole('lecturer'))
+                            <a href="{{ route('missions.addmissions') }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                        @endif
                     </div>
 
                 </div>
@@ -82,9 +83,6 @@
                                     <a class="card-title mb-4pt" href="instructor-edit-course.html">Mission 2</a>
                                     <span class="badge badge-accent">Taken</span>
                                 </div>
-                                @if (Auth:: user()->hasRole('lecturer'))
-                                    <a href="#" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
-                                @endif
                             </div>
                         </div>
                     </div>
@@ -95,10 +93,11 @@
                         <div class="col text-right">
                             <a href="instructor-edit-course.html" class="btn btn-primary">Submit Findings</a>
                         </div>
+                        @if (Auth:: user()->hasRole('lecturer'))
+                            <a href="{{ route('missions.addmissions') }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                        @endif
                     </div>
-
                 </div>
-
             </div>
         </div>
         <!-- Pagination -->
