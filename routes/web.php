@@ -6,6 +6,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\lecturer\AddMissionsController;
 use App\Http\Controllers\student\editStudentProfileController;
+use App\Http\Controllers\lecturer\editLecturerProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,8 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
 Route::group(['middleware' => ['auth', 'role:lecturer']], function() { 
     Route::get('/dashboard/lecturer', [DashboardController::class, 'lecturerDashboard'])->name('dashboard.lecturerDashboard');
     Route::get('/missions/addmissions', [AddMissionsController::class, 'index'])->name('missions.addmissions');
+    Route::get('/lecturer/editProfile', [editLecturerProfileController::class, 'index'])->name('lecturer.editProfile');
+    Route::post('/lecturer/saveAndUpdateProfile', [editLecturerProfileController::class, 'saveAndUpdateProfile'])->name('lecturer.saveAndUpdateProfile');
 });
 
 require __DIR__.'/auth.php';

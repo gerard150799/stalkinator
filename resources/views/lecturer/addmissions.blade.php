@@ -17,8 +17,7 @@
                         <form action ="">
                             <div class="list-group-item">
                                 <label class="form-label">Mission Instruction:</label>
-                                <div style="height: 150px;" data-toggle="quill" data-quill-placeholder="Quill WYSIWYG editor" data-quill-modules-toolbar='[["bold", "italic"], ["link", "blockquote", "code", "image"], [{"list": "ordered"}, {"list": "bullet"}]]'>
-                                </div>
+                                <textarea class="form-control" name="missionInstruction" rows="5" placeholder="Mission instruction goes here.."></textarea>
                             </div>
                             <div class="list-group-item">
                                 <label class="form-label">Difficulty:</label>

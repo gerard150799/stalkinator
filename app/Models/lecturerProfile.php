@@ -13,6 +13,7 @@ class lecturerProfile extends Model
     [
         'user_id',
         'lecturerName',
+        'lecturerID',
         'image'
     ];
 

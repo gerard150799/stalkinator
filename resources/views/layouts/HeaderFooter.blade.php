@@ -123,7 +123,11 @@
                                         <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
                                         <div class="dropdown-divider"></div>
                                         <div class="dropdown-header"><strong>Account</strong></div>
-                                        <a class="dropdown-item" href="{{ route('student.editProfile')}}">Edit Profile</a>
+                                        @if (Auth:: user()->hasRole('student'))
+                                            <a class="dropdown-item" href="{{ route('student.editProfile')}}">Edit Profile</a>
+                                        @elseif (Auth:: user()->hasRole('lecturer'))
+                                            <a class="dropdown-item" href="{{ route('lecturer.editProfile')}}">Edit Profile</a>
+                                        @endif
                                         <form method ="POST" action ="{{ route('logout') }}">
                                             @csrf    
                                                 <a class="dropdown-item" href="route('logout')" onclick="event.preventDefault();
