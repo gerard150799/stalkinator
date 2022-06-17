@@ -10,10 +10,8 @@ class Missions extends Model
     use HasFactory;
     protected $fillable = [
         'lecturer_profile_id',
-        'student_profile_id',
         'mission_instruction',
         'difficulty',
-        'mission_status'
     ];
 
     public function lecturerProfile(){

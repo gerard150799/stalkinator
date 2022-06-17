@@ -27,13 +27,13 @@
                                     <option value="hard">Hard</option>
                                 </select>
                             </div>
-                            <div class="list-group-item">
+                            <!-- <div class="list-group-item">
                                 <label class="form-label">Status:</label>
                                 <div class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
                                     <input checked="" type="checkbox" id="subscribe" class="custom-control-input">
                                     <label class="custom-control-label" for="subscribe">Yes</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <button type="submit" class="btn btn-primary">Save Mission</button>
                         </form>
                     </div>

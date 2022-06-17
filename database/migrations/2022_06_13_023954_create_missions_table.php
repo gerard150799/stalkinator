@@ -17,11 +17,8 @@ class CreateMissionsTable extends Migration
             $table->id();
             $table->bigInteger('lecturer_profile_id')->unsigned()->nullable();
             $table->foreign('lecturer_profile_id')->references('id')->on('lecturer_profiles')->onDelete('cascade');
-            $table->bigInteger('student_profile_id')->unsigned()->nullable();
-            $table->foreign('student_profile_id')->references('id')->on('student_profiles')->onDelete('cascade');
             $table->string('mission_instruction')->nullable();
             $table->string('difficulty')->nullable();
-            $table->string('mission_status')->nullable();
             $table->timestamps();
         });
     }
