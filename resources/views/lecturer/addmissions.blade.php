@@ -34,7 +34,7 @@
                                     <label class="custom-control-label" for="subscribe">Yes</label>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Save Mission</button>
                         </form>
                     </div>
                 </div>
