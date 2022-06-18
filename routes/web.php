@@ -41,6 +41,7 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
 Route::group(['middleware' => ['auth', 'role:lecturer']], function() { 
     Route::get('/dashboard/lecturer', [DashboardController::class, 'lecturerDashboard'])->name('dashboard.lecturerDashboard');
     Route::get('/missions/addmissions', [AddMissionsController::class, 'index'])->name('missions.addmissions');
+    Route::post('/missions/savemission', [AddMissionsController::class, 'saveMissions'])->name('missions.savemissions');
     Route::get('/lecturer/editProfile', [editLecturerProfileController::class, 'index'])->name('lecturer.editProfile');
     Route::post('/lecturer/saveAndUpdateProfile', [editLecturerProfileController::class, 'saveAndUpdateProfile'])->name('lecturer.saveAndUpdateProfile');
 });

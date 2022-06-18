@@ -10,7 +10,9 @@
         </div>
     </div>
     <div class="container page__container">
-        <form action="">
+        <form action="{{ route('missions.savemissions') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
             <div class="row">
                 <div class="col-lg-9 align-items-center">
                     <div class="page-section">
