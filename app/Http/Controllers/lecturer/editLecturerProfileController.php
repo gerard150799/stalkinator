@@ -56,7 +56,7 @@ class editLecturerProfileController extends Controller
                 'lecturerID' => 'required'
 
             ]);
-            if ($lecturer = lecturerProfile::where('id', session()->get('studentProfile_id'))->first()) {
+            if ($lecturer = lecturerProfile::where('id', session()->get('lecturerProfile_id'))->first()) {
                 $lecturer->lecturerName = $request->lecturerName;
                 $lecturer->lecturerID = $request->lecturerID;
                 $lecturer->save();

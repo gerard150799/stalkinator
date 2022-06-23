@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\chooseDifficultyController;
 use App\Http\Controllers\lecturer\AddMissionsController;
 use App\Http\Controllers\student\editStudentProfileController;
 use App\Http\Controllers\lecturer\editLecturerProfileController;
@@ -26,7 +27,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     //Route::get('/', [HomePageController::class, 'index'])->name('homepage');
     Route::get('/missions', [MissionController::class, 'index'])->name('missions');
-
 });
 
 // for students

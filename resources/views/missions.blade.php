@@ -14,18 +14,26 @@
     </div>
     <div class="container page__container page-section">
         <div class="mb-heading d-flex align-items-center">
-            <div class ="row">
-                <div class = "col-sm">
+            <div class ="row w-100">
+                <div class = "col-sm-4 p-0">
                     <h4 class="flex m-0">Choose difficulty:</h4>
                 </div>
-                <div class = "col-sm p-0">
-                    <div class="form-group">
-                        <select id="custom-select" class="form-control custom-select p-0">
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                    </div>
+                <div class = "col-sm-4 p-0">
+                    <form  action="{{ 'missions' }}" name="chooseDifficulty" method="GET">
+                        @csrf
+                        @method('GET')
+                        <div class="form-group">
+                            <select id="difficulty" name="difficulty" class="form-control custom-select p-0">
+                                <option value="Select Difficulty">Select Difficulty</option>
+                                @foreach ($difficulties as $difficulty)
+                                    <option value="{{ $difficulty }}">{{ $difficulty }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class = "col-sm-4 p-0">
+                            <button type ="submit" class ="btn btn-primary">Choose</button>
+                        </div>
+                    </form>
                 </div>
             </div> 
         </div>
@@ -73,7 +81,8 @@
         </div>
         <!-- Pagination -->
         <ul class="pagination justify-content-center pagination-sm">
-            <li class="page-item disabled">
+            {{$missions->links()}}
+            <!-- <li class="page-item disabled">
                 <a class="page-link" href="#" aria-label="Previous">
                     <span aria-hidden="true" class="material-icons">chevron_left</span>
                     <span>Prev</span>
@@ -94,7 +103,7 @@
                     <span>Next</span>
                     <span aria-hidden="true" class="material-icons">chevron_right</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

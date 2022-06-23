@@ -21,4 +21,9 @@ class studentProfile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function AttemptMissions()
+    {
+        return $this->belongsToMany(Mission::class)->withPivot('mission_id', 'status')->withTimestamps();
+    }
 }
