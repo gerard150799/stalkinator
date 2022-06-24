@@ -24,9 +24,9 @@
                             <div class="list-group-item">
                                 <label class="form-label">Difficulty:</label>
                                 <select id="difficulty" name="difficulty" class="form-control custom-select" required>
-                                    <option value="easy">Easy</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="hard">Hard</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Hard">Hard</option>
                                 </select>
                             </div>
                             <!-- <div class="list-group-item">
@@ -36,7 +36,7 @@
                                     <label class="custom-control-label" for="subscribe">Yes</label>
                                 </div>
                             </div> -->
-                            <button type="submit" class="btn btn-primary">Save Mission</button>
+                            <button type="submit" id="save-mission" class="btn btn-primary">Save Mission</button>
                         </form>
                     </div>
                 </div>
@@ -46,4 +46,22 @@
     </div>
 
 </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+
+            $('#save-mission').click(function() {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Mission Added',
+                    showConfirmButton: false,
+                    timer: 1600
+                })
+
+            });
+        });
+    </script>
 @endsection

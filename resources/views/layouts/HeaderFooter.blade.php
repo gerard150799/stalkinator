@@ -119,8 +119,8 @@
                                         <img width="32" height="32" class="rounded-circle" src="{{ asset('assets/images/people/50/guy-3.jpg') }}" alt="student" />
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">{{ Auth::user()->name }}</a>
-                                        <a class="dropdown-item" href="#">{{ Auth::user()->email }}</a>
+                                        <div class="dropdown-item">{{ Auth::user()->name }}</div>
+                                        <div class="dropdown-item">{{ Auth::user()->email }}</div>
                                         <div class="dropdown-divider"></div>
                                         <div class="dropdown-header"><strong>Account</strong></div>
                                         @if (Auth:: user()->hasRole('student'))

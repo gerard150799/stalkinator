@@ -54,9 +54,14 @@
                             <div class="d-flex">
                                 <div class="flex">
                                     <a class="card-title mb-4pt" href="#">Mission {{ $mission->id }}</a>
-                                    <span class="badge badge-success">Available</span>
+                                    @if ($mission->difficulty == 'Easy' )
+                                        <span class="badge badge-success">{{ $mission->difficulty }}</span>
+                                    @elseif ($mission->difficulty == 'Medium')
+                                        <span class="badge badge-primary">{{ $mission->difficulty }}</span>
+                                    @elseif ($mission->difficulty == 'Hard')
+                                        <span class="badge badge-accent">{{ $mission->difficulty }}</span>
+                                    @endif
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
@@ -65,17 +70,24 @@
                     <p class="my-16pt text-black-70">{{ $mission->mission_instruction}}</p>
                     <div class="row align-items-center">
                         <div class="col text-right">
-                            <a href="instructor-edit-course.html" class="btn btn-primary">Submit Findings</a>
+                            @if (Auth:: user()->hasRole('student'))
+                                <a href="instructor-edit-course.html" class="btn btn-primary">Submit Findings</a>
+                            @endif
                         </div>
                         @if (Auth:: user()->hasRole('lecturer'))
                             <a href="{{ route('missions.addmissions') }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                            <a href="#" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">delete</a>
                         @endif
                     </div>
 
                 </div>
             </div>
             @empty
-                <h4 class="flex m-0">No mission has been added. Stay tuned agent!</h4>
+                @if (Auth:: user()->hasRole('student'))
+                    <h4 class="flex m-0">No mission has been added. Stay tuned agent!</h4>
+                @else
+                    <h4 class="flex m-0">No mission has been added.</h4>
+                @endif
             @endforelse
             
         </div>
