@@ -6,6 +6,7 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\chooseDifficultyController;
 use App\Http\Controllers\lecturer\AddMissionsController;
+use App\Http\Controllers\lecturer\manageMissionController;
 use App\Http\Controllers\student\editStudentProfileController;
 use App\Http\Controllers\lecturer\editLecturerProfileController;
 
@@ -44,6 +45,8 @@ Route::group(['middleware' => ['auth', 'role:lecturer']], function() {
     Route::post('/missions/savemission', [AddMissionsController::class, 'saveMissions'])->name('missions.savemissions');
     Route::get('/lecturer/editProfile', [editLecturerProfileController::class, 'index'])->name('lecturer.editProfile');
     Route::post('/lecturer/saveAndUpdateProfile', [editLecturerProfileController::class, 'saveAndUpdateProfile'])->name('lecturer.saveAndUpdateProfile');
-});
+    Route::get('/lecturer/editMission/{id}', [manageMissionController::class, 'index'])->name('lecturer.editMission');
+    Route::post('/lecturer/updateMission/{id}', [manageMissionController::class, 'updateMission'])->name('lecturer.updateMission');
+}); Route::get('/lecturer/deleteMission/{id}', [manageMissionController::class, 'deleteMission'])->name('lecturer.deleteMission');
 
 require __DIR__.'/auth.php';

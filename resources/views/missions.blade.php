@@ -75,8 +75,8 @@
                             @endif
                         </div>
                         @if (Auth:: user()->hasRole('lecturer'))
-                            <a href="{{ route('missions.addmissions') }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
-                            <a href="#" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">delete</a>
+                            <a href="{{ route('lecturer.editMission', $mission) }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
+                            <a href="{{ route('lecturer.deleteMission', [$mission->id]) }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">delete</a>
                         @endif
                     </div>
 
@@ -94,8 +94,37 @@
         <!-- Pagination -->
         <ul class="pagination justify-content-center pagination-sm">
             {{$missions->links()}}
+
         </ul>
     </div>
 </div>
 
+@endsection
+
+@section('script')
+    <script>
+        $('.ml-4pt material-icons text-black-20 card-course__icon-favorite').on('click', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            console.log(self.data('title'))
+            Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                    'Deleted!',
+                    'Mission has been deleted.',
+                    'success'
+                    )
+                    location.href = self.attr('href');
+                }
+            })
+        })
+    </script>
 @endsection
