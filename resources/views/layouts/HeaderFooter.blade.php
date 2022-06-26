@@ -179,9 +179,13 @@
     </div>
     <!-- jQuery -->
     <script src="{{ asset('assets/vendor/jquery.min.js') }}"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="sweetalert2.all.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
     <!-- Bootstrap -->
     <script src="{{ asset('assets/vendor/popper.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap.min.js') }}"></script>
@@ -208,7 +212,7 @@
     <script src="{{ asset('assets/js/hljs.js') }}"></script>
 
     <!-- App Settings (safe to remove) -->
-    <script src="{{ asset('assets/js/app-settings.js') }}"></script>
+    <!-- <script src="{{ asset('assets/js/app-settings.js') }}"></script> -->
     <!-- Quill -->
     <script src="{{ asset('assets/vendor/quill.min.js') }}"></script>
     <script src="{{ asset('assets/js/quill.js') }}"></script>

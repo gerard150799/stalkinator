@@ -1,6 +1,9 @@
 @extends('layouts.HeaderFooter')
 
 @section('content')
+@include('sweetalert::alert')
+
+
 <div class="mdk-header-layout__content page-content">
     <div class="py-54pt bg-gradient-primary">
         <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
@@ -75,8 +78,12 @@
                             @endif
                         </div>
                         @if (Auth:: user()->hasRole('lecturer'))
-                            <a href="{{ route('lecturer.editMission', $mission) }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">edit</a>
-                            <a href="{{ route('lecturer.deleteMission', [$mission->id]) }}" class="ml-4pt material-icons text-black-20 card-course__icon-favorite">delete</a>
+                            <a href="{{ route('lecturer.editMission', $mission) }}" class="btn btn-primary">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            <a href="{{ route('lecturer.deleteMission', [$mission->id]) }}" class="btn btn-accent del">
+                                <i class="material-icons">delete</i>
+                            </a>
                         @endif
                     </div>
 
@@ -103,28 +110,25 @@
 
 @section('script')
     <script>
-        $('.ml-4pt material-icons text-black-20 card-course__icon-favorite').on('click', function (e) {
-            e.preventDefault();
-            var self = $(this);
-            console.log(self.data('title'))
-            Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                    'Deleted!',
-                    'Mission has been deleted.',
-                    'success'
-                    )
-                    location.href = self.attr('href');
-                }
-            })
-        })
+        $(document).ready(function () {
+            $('.del').click(function (e) { 
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this imaginary file!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal("Poof! Your imaginary file has been deleted!", {
+                        icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+            });
+        });    
     </script>
 @endsection

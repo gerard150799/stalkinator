@@ -9,6 +9,7 @@ use App\Models\lecturerProfile;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class manageMissionController extends Controller
 {
@@ -31,9 +32,12 @@ class manageMissionController extends Controller
     }
 
     public function deleteMission($id)
-    {
+    {   
+        //Alert::question('Question', 'Are you sure you want to delete this mission?');
         $mission = Missions::find($id);
         $mission->delete();
+        Alert::success('Success', 'Mission has been deleted');
+        
         return redirect()->route('missions');
     }
 }
