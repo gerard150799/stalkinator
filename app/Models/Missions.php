@@ -21,4 +21,8 @@ class Missions extends Model
     public function studentProfile(){
         return $this->belongsToMany(studentProfile::class);
     }
+
+    public function Submissions(){
+        return $this->hasMany(Submissions::class);
+    }
 }
