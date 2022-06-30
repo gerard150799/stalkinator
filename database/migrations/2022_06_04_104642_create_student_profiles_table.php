@@ -20,6 +20,7 @@ class CreateStudentProfilesTable extends Migration
             $table->string('fullName')->nullable();
             $table->integer('studentID')->nullable();
             $table->string('image')->nullable();
+            $table->integer('points')->nullable();
             $table->timestamps();
         });
     }

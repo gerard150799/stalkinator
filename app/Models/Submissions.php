@@ -14,8 +14,7 @@ class Submissions extends Model
         'student_profile_id',
         'mission_id',
         'submissionFile',
-        'status',
-        'points'
+        'status'
     ];
 
     public function studentSubmission(){

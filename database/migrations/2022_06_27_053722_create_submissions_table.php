@@ -21,7 +21,6 @@ class CreateSubmissionsTable extends Migration
             $table->foreign('mission_id')->references('id')->on('missions')->onDelete('cascade');
             $table->string('submissionFile')->nullable();
             $table->string('status')->nullable();
-            $table->string('points')->nullable();
             $table->timestamps();
         });
     }

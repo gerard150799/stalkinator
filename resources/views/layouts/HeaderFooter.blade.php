@@ -32,6 +32,8 @@
     <link type="text/css" href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('assets/css/app.rtl.css') }}" rel="stylesheet">
 
+    <link type="text/css" href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+
     <link type="text/css" href="{{ asset('assets/css/quill.css') }}" rel="stylesheet">
     <link type="text/css" href="{{ asset('assets/css/quill.rtl.css') }}" rel="stylesheet">
 </head>
@@ -99,7 +101,7 @@
                                             <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
                                             <a class="nav-item nav-link" href="{{ route('missions') }}">Missions</a>
                                             <!-- <a class="nav-item nav-link" href="#">Mission Configurations</a> -->
-                                            <a class="nav-item nav-link" href="#">Submissions</a>
+                                            <a class="nav-item nav-link" href="{{ route('lecturer.submissions') }}">Submissions</a>
                                             <a class="nav-item nav-link" href="#">Leaderboard</a>
                                         @endif
                                 @else

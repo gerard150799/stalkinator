@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MissionController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubmissionController;
 use App\Http\Controllers\chooseDifficultyController;
 use App\Http\Controllers\lecturer\AddMissionsController;
 use App\Http\Controllers\lecturer\manageMissionController;
@@ -47,6 +48,9 @@ Route::group(['middleware' => ['auth', 'role:lecturer']], function() {
     Route::post('/lecturer/saveAndUpdateProfile', [editLecturerProfileController::class, 'saveAndUpdateProfile'])->name('lecturer.saveAndUpdateProfile');
     Route::get('/lecturer/editMission/{id}', [manageMissionController::class, 'index'])->name('lecturer.editMission');
     Route::post('/lecturer/updateMission/{id}', [manageMissionController::class, 'updateMission'])->name('lecturer.updateMission');
-}); Route::get('/lecturer/deleteMission/{id}', [manageMissionController::class, 'deleteMission'])->name('lecturer.deleteMission');
+    Route::get('/lecturer/deleteMission/{id}', [manageMissionController::class, 'deleteMission'])->name('lecturer.deleteMission');
+    Route::get('/lecturer/submissions', [SubmissionController::class, 'index'])->name('lecturer.submissions');
+
+}); 
 
 require __DIR__.'/auth.php';
