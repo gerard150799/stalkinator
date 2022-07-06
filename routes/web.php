@@ -36,7 +36,8 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
     Route::get('/dashboard/student', [DashboardController::class, 'studentDashboard'])->name('dashboard.studentDashboard');
     Route::get('/student/editProfile', [editStudentProfileController::class, 'index'])->name('student.editProfile');
     Route::post('/student/saveAndUpdateProfile', [editStudentProfileController::class, 'saveAndUpdateProfile'])->name('student.saveAndUpdateProfile');
-    
+    //Route::post('/student/submitFindings/{$findMissionID}', [SubmissionController::class, 'storeSubmission'])->name('student.submitFindings');
+    //Route::post('/missions/submitFindings/{mission_id}', [MissionController::class, 'submitFindings'])->name('student.submitFindings');
 });
 
 // for lecturers
@@ -49,7 +50,7 @@ Route::group(['middleware' => ['auth', 'role:lecturer']], function() {
     Route::get('/lecturer/editMission/{id}', [manageMissionController::class, 'index'])->name('lecturer.editMission');
     Route::post('/lecturer/updateMission/{id}', [manageMissionController::class, 'updateMission'])->name('lecturer.updateMission');
     Route::get('/lecturer/deleteMission/{id}', [manageMissionController::class, 'deleteMission'])->name('lecturer.deleteMission');
-    Route::get('/lecturer/submissions', [SubmissionController::class, 'index'])->name('lecturer.submissions');
+    Route::get('/lecturer/submissions/', [SubmissionController::class, 'index'])->name('lecturer.submissions');
 
 }); 
 

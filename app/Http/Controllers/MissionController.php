@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Missions;
 use Laratrust\Laratrust;
+use App\Models\Submissions;
 use Illuminate\Http\Request;
 use App\Models\lecturerProfile;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,8 @@ class MissionController extends Controller
         return $request->all();
         return view('missions');
     }
+
+    
 
     
 

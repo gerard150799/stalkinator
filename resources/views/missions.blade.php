@@ -13,11 +13,13 @@
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form>
+            <form action ="" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
                 <div class="modal-body">
                     <div class="form-group m-0">
                         <div class="custom-file">
-                            <input type="file" id="file" class="custom-file-input">
+                            <input type="file" id="file" name="file" class="custom-file-input">
                             <label for="file" class="custom-file-label">Choose file</label>
                         </div>
                     </div>
@@ -89,7 +91,16 @@
                                     @elseif ($mission->difficulty == 'Hard')
                                         <span class="badge badge-accent">{{ $mission->difficulty }}</span>
                                     @endif
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Submit Findings</button>
+                                    @if (Auth:: user()->hasRole('student'))
+                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Submit Findings</button>
+                                    @elseif (Auth:: user()->hasRole('lecturer'))
+                                        <a href="{{ route('lecturer.editMission', $mission) }}" class="btn btn-primary">
+                                            <i class="material-icons">edit</i>
+                                        </a>
+                                        <a href="{{ route('lecturer.deleteMission', [$mission->id]) }}" class="btn btn-accent del">
+                                            <i class="material-icons">delete</i>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
