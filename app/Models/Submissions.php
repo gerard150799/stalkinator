@@ -22,6 +22,6 @@ class Submissions extends Model
     }
     
     public function Missions(){
-        return $this->belongsTo(Missons::class, 'mission_id', 'id');
+        return $this->belongsTo(Missions::class);
     }
 }

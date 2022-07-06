@@ -27,7 +27,6 @@ class AddMissionsController extends Controller
             'difficulty' => 'required'
         ]);
         $storeMission = new Missions();
-        $storeMission->lecturer_profile_id = session()->get('lecturerProfile_id');
         $storeMission->mission_instruction = $request->missionInstruction;
         $storeMission->difficulty = $request->difficulty;
         $storeMission->save();

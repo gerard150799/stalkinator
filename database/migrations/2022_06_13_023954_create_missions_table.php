@@ -15,8 +15,6 @@ class CreateMissionsTable extends Migration
     {
         Schema::create('missions', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('lecturer_profile_id')->unsigned()->nullable();
-            $table->foreign('lecturer_profile_id')->references('id')->on('lecturer_profiles')->onDelete('cascade');
             $table->string('mission_instruction')->nullable();
             $table->string('difficulty')->nullable();
             $table->timestamps();

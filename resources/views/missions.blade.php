@@ -4,7 +4,7 @@
 @include('sweetalert::alert')
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -31,7 +31,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
 <div class="mdk-header-layout__content page-content">
     <div class="py-54pt bg-gradient-primary">
         <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
@@ -92,7 +92,7 @@
                                         <span class="badge badge-accent">{{ $mission->difficulty }}</span>
                                     @endif
                                     @if (Auth:: user()->hasRole('student'))
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">Submit Findings</button>
+                                        <a href="{{ route('student.submitFindings', $mission) }}" class="btn btn-primary btn-sm">Submit Findings</a>
                                     @elseif (Auth:: user()->hasRole('lecturer'))
                                         <a href="{{ route('lecturer.editMission', $mission) }}" class="btn btn-primary">
                                             <i class="material-icons">edit</i>

@@ -5,6 +5,7 @@ use App\Http\Controllers\MissionController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\submitFindingsController;
 use App\Http\Controllers\chooseDifficultyController;
 use App\Http\Controllers\lecturer\AddMissionsController;
 use App\Http\Controllers\lecturer\manageMissionController;
@@ -38,6 +39,8 @@ Route::group(['middleware' => ['auth', 'role:student']], function() {
     Route::post('/student/saveAndUpdateProfile', [editStudentProfileController::class, 'saveAndUpdateProfile'])->name('student.saveAndUpdateProfile');
     //Route::post('/student/submitFindings/{$findMissionID}', [SubmissionController::class, 'storeSubmission'])->name('student.submitFindings');
     //Route::post('/missions/submitFindings/{mission_id}', [MissionController::class, 'submitFindings'])->name('student.submitFindings');
+    Route::get('/student/submitFindings/{id}', [submitFindingsController::class, 'index'])->name('student.submitFindings');
+    Route::post('/student/storeFindings}', [submitFindingsController::class, 'storeSubmission'])->name('student.storeFindings');
 });
 
 // for lecturers

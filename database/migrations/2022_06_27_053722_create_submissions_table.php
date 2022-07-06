@@ -17,8 +17,8 @@ class CreateSubmissionsTable extends Migration
             $table->id();
             $table->bigInteger('student_profile_id')->unsigned();
             $table->foreign('student_profile_id')->references('id')->on('student_profiles')->onDelete('cascade');
-            $table->bigInteger('mission_id')->unsigned();
-            $table->foreign('mission_id')->references('id')->on('missions')->onDelete('cascade');
+            /* $table->bigInteger('mission_id')->unsigned();
+            $table->foreign('mission_id')->references('id')->on('missions')->onDelete('cascade'); */
             $table->string('submissionFile')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();

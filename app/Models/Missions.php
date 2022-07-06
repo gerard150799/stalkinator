@@ -9,9 +9,8 @@ class Missions extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'lecturer_profile_id',
         'mission_instruction',
-        'difficulty',
+        'difficulty'
     ];
 
     public function lecturerProfile(){
@@ -23,6 +22,6 @@ class Missions extends Model
     }
 
     public function Submissions(){
-        return $this->hasMany(Submissions::class);
+        return $this->hasMany(Submissions::class, 'mission_id', 'id');
     }
 }
