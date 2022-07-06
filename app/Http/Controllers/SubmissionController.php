@@ -12,10 +12,11 @@ class SubmissionController extends Controller
 {
     //
     public function index(){
+        $submissionData = Submissions::join('student_profiles', 'student_profiles.id', '=', 'submissions.student_profile_id')
+                                        ->get(['student_profiles.fullName', 'student_profiles.studentID', 'submissions.submissionFile', 'submissions.created_at']);
 
 
-
-        return view('lecturer.submissions');
+        return view('lecturer.submissions', compact('submissionData'));
     }
 
     /* public function storeSubmission(Request $request, $id){

@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth', 'role:lecturer']], function() {
     Route::post('/lecturer/updateMission/{id}', [manageMissionController::class, 'updateMission'])->name('lecturer.updateMission');
     Route::get('/lecturer/deleteMission/{id}', [manageMissionController::class, 'deleteMission'])->name('lecturer.deleteMission');
     Route::get('/lecturer/submissions/', [SubmissionController::class, 'index'])->name('lecturer.submissions');
+    Route::get('/lecturer/downloadSubmissions/{submissionFile}', [submitFindingsController::class, 'download'])->name('lecturer.downloadSubmissions');
 
 }); 
 

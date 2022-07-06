@@ -49,4 +49,9 @@ class submitFindingsController extends Controller
 
         return redirect()->route('missions')->with('success', 'submitedd');
     }
+
+    public function download(Request $request,$submissionFile)
+    {
+        return response()->download(public_path('assets/'.$submissionFile));
+    }
 }
