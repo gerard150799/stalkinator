@@ -10,7 +10,11 @@
         </div>
     </div>
     <div class= "container page__container">
-        <div class="table responsive">
+        <div class="table responsive" data-toggle="lists" data-lists-values='["studentName"]'>
+            <div class="search-form search-form--light mb-3">
+                <input type="text" class="form-control search" placeholder="Search">
+                <button class="btn" type="button" role="button"><i class="material-icons">search</i></button>
+            </div>
             <table class= "table table-flush">
                 <thead>
                     <tr>
@@ -24,7 +28,7 @@
                 <tbody class="list">
                     @forelse ($submissionData as $row )
                         <tr>
-                            <td>{{ $row->fullName }}</td>
+                            <td class = "studentName">{{ $row->fullName }}</td>
                             <td>{{ $row->studentID }}</td>
                             <td>{{ $row->submissionFile }}</td>
                             <td>{{ $row->created_at }}</td>
