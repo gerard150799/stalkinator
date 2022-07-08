@@ -5,6 +5,7 @@ use App\Http\Controllers\MissionController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SubmissionController;
+use App\Http\Controllers\leaderboardController;
 use App\Http\Controllers\submitFindingsController;
 use App\Http\Controllers\chooseDifficultyController;
 use App\Http\Controllers\lecturer\AddMissionsController;
@@ -30,6 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'App\Http\Controllers\DashboardController@index')->name('dashboard');
     //Route::get('/', [HomePageController::class, 'index'])->name('homepage');
     Route::get('/missions', [MissionController::class, 'index'])->name('missions');
+    Route::get('/leaderboard', [leaderboardController::class, 'index'])->name('leaderboard');
 });
 
 // for students
@@ -55,6 +57,7 @@ Route::group(['middleware' => ['auth', 'role:lecturer']], function() {
     Route::get('/lecturer/deleteMission/{id}', [manageMissionController::class, 'deleteMission'])->name('lecturer.deleteMission');
     Route::get('/lecturer/submissions/', [SubmissionController::class, 'index'])->name('lecturer.submissions');
     Route::get('/lecturer/downloadSubmissions/{submissionFile}', [submitFindingsController::class, 'download'])->name('lecturer.downloadSubmissions');
+    Route::post('/lecturer/assignPoints/{student_name}', [SubmissionController::class, 'assignPoints'])->name('lecturer.assignPoints');
 
 }); 
 

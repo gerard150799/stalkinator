@@ -14,7 +14,8 @@ class studentProfile extends Model
         'user_id',
         'fullName',
         'studentID',
-        'image'
+        'image',
+        'points'
     ];
 
     public function Users()
