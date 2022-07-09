@@ -32,7 +32,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Points</button>
+                    <button type="submit" id="add-points" class="btn btn-primary">Add Points</button>
                 </div>
             </form>
         </div>
@@ -84,4 +84,25 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+
+    <script>
+        $(document).ready(function() {
+
+            $('#add-points').click(function() {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Points have been added',
+                    showConfirmButton: false,
+                    timer: 1600
+                })
+
+            });
+        });
+    </script>
+
+
 @endsection

@@ -48,7 +48,7 @@ class SubmissionController extends Controller
         $updatePoints = studentProfile::where('fullName', $student_name)->firstOrFail()
                                         ->update(array('points'=>$points));
 
-        return redirect()->route('lecturer.submissions');
+        return redirect()->route('leaderboard');
 
     
     }

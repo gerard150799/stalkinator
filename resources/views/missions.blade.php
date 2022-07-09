@@ -93,6 +93,9 @@
                                     @endif
                                     @if (Auth:: user()->hasRole('student'))
                                         <a href="{{ route('student.submitFindings', $mission) }}" class="btn btn-primary btn-sm">Submit Findings</a>
+                                        {{-- @if ($submissionStatus->status == 'Submitted')
+                                            <span class="badge badge-success">{{ $submissionStatus->status }}</span>
+                                        @endif --}}
                                     @elseif (Auth:: user()->hasRole('lecturer'))
                                         <a href="{{ route('lecturer.editMission', $mission) }}" class="btn btn-primary">
                                             <i class="material-icons">edit</i>

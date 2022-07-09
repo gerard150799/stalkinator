@@ -16,7 +16,11 @@ class MissionController extends Controller
         $missions = Missions::with('lecturerProfile')->get();
         $difficulties = DB::table('missions')->select('difficulty')->distinct()->get()->pluck('difficulty');
 
+        //$submissionStatus = DB::table('submissions')->select('status')->distinct()->get()->pluck('status');
+
+
         $missions = Missions::query();
+        //$submissionStatus = Submissions::query();
 
         if($request->filled('difficulty')){
             $missions->where('difficulty', $request->difficulty);
@@ -26,7 +30,8 @@ class MissionController extends Controller
         return view('missions', [
             'difficulties'=> $difficulties,
             'missions'=> $missions->paginate(4),
-        ], compact('difficulties', 'missions'));
+            //'submissionStatus'=> $submissionStatus,
+        ], compact('difficulties', 'missions' /*'submissionStatus'*/));
         
         
         

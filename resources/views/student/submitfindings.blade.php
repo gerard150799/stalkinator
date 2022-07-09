@@ -16,13 +16,34 @@
                 @method('POST')
                 <div class="form-group m-0">
                     <div class="custom-file">
-                        <input type="file" id="file" name="file" class="custom-file-input">
-                        <label for="file" class="custom-file-label">Choose file</label>
+                        <input type="file" id="submissionFile" name="submissionFile" class="custom-file-input">
+                        <label for="submissionFile" class="custom-file-label">Choose file</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Findings</button>
+                    <button type="submit" id="submit-findings" class="btn btn-primary">Submit Findings</button>
                 </div>   
             </form>
     </div>
 </div>
+
+@endsection
+
+@section('script')
+
+    <script>
+        $(document).ready(function() {
+
+            $('#submit-findings').click(function() {
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Mission Completed',
+                    showConfirmButton: false,
+                    timer: 1600
+                })
+
+            });
+        });
+    </script>
+
 
 @endsection
