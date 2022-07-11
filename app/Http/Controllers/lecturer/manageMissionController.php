@@ -36,7 +36,7 @@ class manageMissionController extends Controller
         //Alert::question('Question', 'Are you sure you want to delete this mission?');
         $findMission = Missions::find($id);
         $findMission->delete();
-        Alert::success('Success', 'Mission has been deleted');
+        //Alert::success('Success', 'Mission has been deleted');
         
         return redirect()->route('missions');
     }

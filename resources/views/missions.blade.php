@@ -152,3 +152,31 @@
 
 @endsection
 
+@section('script')
+    <script>
+        $('.del').on('click', function (event) {
+        event.preventDefault();
+        const url = $(this).attr('href');
+        Swal.fire({
+            title: 'Are you sure you want to delete this mission?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then(function(value) {
+            if (value.isConfirmed) {
+                window.location.href = url;
+                Swal.fire(
+                    'Deleted!',
+                    'Mission has been self destruct.',
+                    'success'
+                )
+            }
+        });
+    });
+    </script>
+
+@endsection
+
