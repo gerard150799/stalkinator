@@ -4,31 +4,26 @@
 @include('sweetalert::alert')
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<!-- <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Submit Your Findings</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Mission</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action ="" method="POST" enctype="multipart/form-data">
+            <form action="" method= "GET" enctype="multipart/form-data">
                 @csrf
-                @method('POST')
+                @method('GET')
                 <div class="modal-body">
-                    <div class="form-group m-0">
-                        <div class="custom-file">
-                            <input type="file" id="file" name="file" class="custom-file-input">
-                            <label for="file" class="custom-file-label">Choose file</label>
-                        </div>
-                    </div>
+                    <p>Are you sure you want to delete this mission?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-accent">Yes</button>
                 </div>
-            </form>
+            </form>      
         </div>
     </div>
 </div> -->
@@ -157,27 +152,3 @@
 
 @endsection
 
-@section('script')
-    <script>
-        $(document).ready(function () {
-            $('.del').click(function (e) { 
-                swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this imaginary file!",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Poof! Your imaginary file has been deleted!", {
-                        icon: "success",
-                        });
-                    } else {
-                        swal("Your imaginary file is safe!");
-                    }
-                });
-            });
-        });    
-    </script>
-@endsection
