@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Stalk-INATOR</title>
+    <link rel="icon" href="{{ asset('assets/images/logo/logo.png') }}">
 
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
