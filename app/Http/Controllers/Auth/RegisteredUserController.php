@@ -53,9 +53,9 @@ class RegisteredUserController extends Controller
 
         if (Auth::user()->hasRole('student')) {
             // return redirect()->route('homepage');
-            return redirect()->route('dashboard.studentDashboard')->with('message', 'Success!');
+            return redirect()->route('homepage')->with('message', 'Success!');
         } elseif (Auth::user()->hasRole('lecturer')) {
-            return redirect()->route('dashboard.lecturerDashboard')->with('message', 'Sucess!');
+            return redirect()->route('homepage')->with('message', 'Sucess!');
         }
     }
 }
