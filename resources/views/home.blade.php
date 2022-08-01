@@ -12,7 +12,17 @@
                             <div class="col-md-6 col-lg-5 order-1 order-md-0">
                                 <h1 class="text-white">Learn to Social Engineer</span></h1>
                                 <p class="lead mb-32pt mb-lg-48pt text-white">A mission-based platform to promote social engineering knowledge and awareness in education level</p>
-                                <a href="" class="btn btn-lg btn-white btn--raised mb-16pt">Start Playing</a>
+                                @if (Route::has('login'))
+                                    @auth
+                                        @if (Auth:: user()->hasRole('student'))
+                                            <a href="{{ route('missions') }}" class="btn btn-lg btn-white btn--raised mb-16pt">Start Playing</a>
+                                        @elseif(Auth::user()->hasRole('lecturer'))
+                                            <a href="{{ route('missions.addmissions') }}" class="btn btn-lg btn-white btn--raised mb-16pt">Add Missions</a>
+                                        @endif
+                                @else
+                                    <a href="{{ route('register') }}" class="btn btn-lg btn-white btn--raised mb-16pt">Start Playing</a>
+                                    @endauth
+                                @endif
                             </div>
                             <!-- <div class="col-md-6 col-lg-7 order-0 order-md-1 text-center mb-32pt mb-md-0">
                                 <img src="assets/images/macbook.png" alt="macbook" class="home-macbook">
@@ -73,7 +83,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="card card--elevated card-body">
                                         <blockquote class="mb-0">
-                                            <p class="text-70">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio reiciendis iusto id, doloribus optio soluta laborum nobis dolor tempore velit porro maiores eveniet voluptas officia ipsa magnam aliquam. Perferendis?</p>
+                                            <p class="text-70">A great web quest platform to teach about social engineering</p>
 
                                             <div class="media">
                                                 <div class="media-left">
@@ -97,7 +107,7 @@
                                 <div class="col-12 col-md-6">
                                     <div class="card card--elevated card-body">
                                         <blockquote class="mb-0">
-                                            <p class="text-70">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio reiciendis iusto id, doloribus optio soluta laborum nobis dolor tempore velit porro maiores eveniet voluptas officia ipsa magnam aliquam. Perferendis?</p>
+                                            <p class="text-70">I had fun social engineering but also it made me aware how hackers does a social engineering attack</p>
 
                                             <div class="media">
                                                 <div class="media-left">

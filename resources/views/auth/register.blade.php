@@ -122,7 +122,7 @@
                     <div class="container">
 
                         <!-- Navbar Brand -->
-                        <a href="index.html" class="navbar-brand">
+                        <a href="{{ route('homepage') }}" class="navbar-brand">
                             <img class="navbar-brand-icon" src="{{ asset('assets/images/logo/logo.png') }}" width="30">
                             <span class="d-none d-md-block">Stalk-INATOR</span>
                         </a>
@@ -220,14 +220,14 @@
     <!-- // END Header Layout -->
   
     <!-- App Settings FAB -->
-    <div id="app-settings">
+    <!-- <div id="app-settings">
         <app-settings theme-active="blue-light" :theme-location="{
       'blue-light': 'http://tutorio-bootstrap.frontendmatter.com/signup.html',
       'blue-dark': 'http://tutorio-dark.frontendmatter.com/signup.html',
       'teal-light': 'http://tutorio-teal.frontendmatter.com/signup.html',
       'teal-dark': 'http://tutorio-teal-dark.frontendmatter.com/signup.html'
     }" sidebar-variant="bg-transparent border-0"></app-settings>
-    </div>
+    </div> -->
    
 
     <!-- jQuery -->

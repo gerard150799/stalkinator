@@ -11,6 +11,8 @@
     </div>
     <div class= "container page__container">
         <h2 class="flex m-0">Mission Instruction: {{ $mission->mission_instruction }}</h2>
+        <br><br>
+        <p>You can upload images file such as png and jpg, pdf file and word document. Max upload size: 2MB </p>
             <form action ="{{ route('student.storeFindings') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
@@ -19,8 +21,9 @@
                         <input type="file" id="submissionFile" name="submissionFile" class="custom-file-input">
                         <label for="submissionFile" class="custom-file-label">Choose file</label>
                     </div>
-                    <button type="submit" id="submit-findings" class="btn btn-primary">Submit Findings</button>
-                </div>   
+                </div>
+                <br>   
+                <button type="submit" id="submit-findings" class="btn btn-primary">Submit Findings</button>
             </form>
     </div>
 </div>

@@ -54,7 +54,7 @@
                     <div class="container">
 
                         <!-- Navbar Brand -->
-                        <a href="index.html" class="navbar-brand">
+                        <a href="{{ route('homepage') }}" class="navbar-brand">
                             <img class="navbar-brand-icon" src="assets/images/logo/logo.png" width="30" >
                             <span class="d-none d-md-block">STALK-INATOR</span>
                         </a>
