@@ -97,7 +97,6 @@
                                             <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
                                             <a class="nav-item nav-link" href="{{ route('missions') }}">Missions</a>
                                             <a class="nav-item nav-link" href="{{ route('leaderboard') }}">Leaderboard</a>
-                                            <a class="nav-item nav-link" href="{{ route('dashboard.studentDashboard') }}">Dashboard</a>
                                         @elseif(Auth::user()->hasRole('lecturer'))
                                             <a class="nav-item nav-link" href="{{ route('homepage') }}">Home <span class="sr-only">(current)</span></a>
                                             <a class="nav-item nav-link" href="{{ route('missions') }}">Missions</a>
