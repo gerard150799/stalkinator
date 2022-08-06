@@ -20,7 +20,7 @@ class CreateStudentProfilesTable extends Migration
             $table->string('fullName')->nullable();
             $table->integer('studentID')->nullable();
             $table->string('image')->default('default-image.jpg');
-            $table->integer('points')->nullable();
+            $table->integer('points')->default('0');
             $table->timestamps();
         });
     }
