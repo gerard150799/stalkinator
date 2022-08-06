@@ -19,7 +19,7 @@ class CreateLecturerProfilesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('lecturerName')->nullable();
             $table->integer('lecturerID')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->default('default-image.jpg');
             $table->timestamps();
         });
     }

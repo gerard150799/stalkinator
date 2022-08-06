@@ -19,7 +19,7 @@ class CreateStudentProfilesTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('fullName')->nullable();
             $table->integer('studentID')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->default('default-image.jpg');
             $table->integer('points')->nullable();
             $table->timestamps();
         });

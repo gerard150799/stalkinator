@@ -22,13 +22,13 @@
                                 <div class="form-group row mb-0">
                                     <label class="col-form-label col-sm-3">Profile photo</label>
                                     <div class="col-sm-9 media align-items-center">
-                                        <a href="" class="media-left mr-16pt">
-                                            <img src="/stalkinator/storage/app/public/uploads/{{ auth()->user()->studentProfile->image }}" alt="people" width="56" class="rounded-circle" />
-                                        </a>
+                                        <span class="media-left mr-16pt">
+                                            <img src="/storage/images/{{$student->image ?? 'default-image.jpg'}}" alt="people" width="56" class="rounded-circle" />
+                                        </span>
                                         <div class="media-body">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="image" id="inputGroupFile01">
-                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                <input type="file" class="custom-file-input" name="image" id="image">
+                                                <label class="custom-file-label" for="image">Choose file</label>
                                             </div>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@
                                     <div class="form-group row mb-0">
                                         <label class="col-form-label col-sm-3">Full Name</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name = "fullName" class="form-control" value="{{ $student->fullName }}" placeholder="Your first name ...">
+                                            <input type="text" name = "fullName" class="form-control" value="{{ $student->fullName ?? 'None' }}" placeholder="Your first name ...">
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +47,7 @@
                                     <div class="form-group row mb-0">
                                         <label class="col-form-label col-sm-3">StudentID</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="studentID" class="form-control" value="{{ $student->studentID }}" placeholder="Your student ID">
+                                            <input type="text" name="studentID" class="form-control" value="{{ $student->studentID ?? 'None' }}" placeholder="Your student ID">
                                         </div>
                                     </div>
                                 </div>
@@ -70,13 +70,13 @@
                                 <div class="form-group row mb-0">
                                     <label class="col-form-label col-sm-3">Profile photo</label>
                                     <div class="col-sm-9 media align-items-center">
-                                        <a href="" class="media-left mr-16pt">
-                                            <img src="assets/images/people/110/guy-3.jpg" alt="people" width="56" class="rounded-circle" />
-                                        </a>
+                                        <spam class="media-left mr-16pt">
+                                            <img src="/storage/images/default-image.jpg" alt="people" width="56" class="rounded-circle" />
+                                        <spam>
                                         <div class="media-body">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="image" id="inputGroupFile01">
-                                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                <input type="file" class="custom-file-input" name="image" id="image">
+                                                <label class="custom-file-label" for="image">Choose file</label>
                                             </div>
                                         </div>
                                     </div>
@@ -126,6 +126,12 @@
                 })
 
             });
+            $('#image').on('change',function(){
+                //get the file name
+                var fileName = $(this).val();
+                //replace the "Choose a file" label
+                $(this).next('.custom-file-label').html(fileName);
+            })
         });
     </script>
 

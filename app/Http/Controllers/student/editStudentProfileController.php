@@ -29,20 +29,27 @@ class editStudentProfileController extends Controller
 
             ]);
             if ($student = studentProfile::where('id', session()->get('studentProfile_id'))->first()) {
-                $imagePath = $request->image->store('uploads', 'public');
+                $imageUploaded = request()->file('image');
+                $imageName = pathinfo($imageUploaded, PATHINFO_FILENAME). '_' .time(). '.' . $imageUploaded->getClientOriginalExtension();
+                $imagePath = public_path('/storage/images/');
+                $imageUploaded->move($imagePath, $imageName);
+                //$imagePath = $request->image->store('uploads', 'public');
                 $student->fullName = $request->fullName;
                 $student->studentID = $request->studentID;
-                $student->image = $imagePath;
+                $student->image = $imageName;
                 $student->save();
                 return redirect()->back();
             } else {
                 $storeStudentProfile = new studentProfile();
                 $storeStudentProfile->user_id = Auth::user()->id;
                 //$storeStudentProfile->user_id = $user_id;
-                $imagePath = $request->image->store('uploads', 'public');
+                $imageUploaded = request()->file('image');
+                $imageName = pathinfo($imageUploaded, PATHINFO_FILENAME). '_' .time(). '.' . $imageUploaded->getClientOriginalExtension();
+                $imagePath = public_path('/storage/images/');
+                $imageUploaded->move($imagePath, $imageName);
                 $storeStudentProfile->fullName = $request->fullName;
                 $storeStudentProfile->studentID = $request->studentID;
-                $storeStudentProfile->image = $imagePath;
+                $storeStudentProfile->image = $imageName;
 
                 $storeStudentProfile->save();
                 //dd($imagePath);
@@ -67,7 +74,6 @@ class editStudentProfileController extends Controller
                 //$storeStudentProfile->user_id = $user_id;
                 $storeStudentProfile->fullName = $request->fullName;
                 $storeStudentProfile->studentID = $request->studentID;
-                $storeStudentProfile->image = "NULL";
                 $storeStudentProfile->save();
 
                 session(['studentProfile_id' => $storeStudentProfile->id]);
